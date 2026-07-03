@@ -232,10 +232,12 @@
 .licHead {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(9px, 1.4vw, 12px);
-  letter-spacing: 0.1em;
+  font-size: clamp(9px, 1.4vw, 11px);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .licHead b { color: #b03a2e; }
 .licBody { display: flex; gap: 5%; margin-top: 4%; flex: 1; }
@@ -258,7 +260,8 @@
 .licFields b { font-size: clamp(10px, 1.7vw, 14px); letter-spacing: 0.02em; }
 .licBarcode {
   margin-top: auto;
-  height: 18%;
+  height: 44px;
+  flex-shrink: 0;
   border-radius: 4px;
   background: repeating-linear-gradient(
     90deg,
@@ -429,6 +432,7 @@
   width: 90px;
   height: 90px;
   margin: -45px 0 0 -45px;
+  z-index: 2;
   border: 3px solid var(--acid);
   border-radius: 50%;
   display: flex;

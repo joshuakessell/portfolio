@@ -33,25 +33,36 @@ export function Desk() {
           </div>
           <motion.div
             className={styles.dash}
-            initial={reduce ? undefined : { opacity: 0, y: 34 }}
-            animate={reduce ? { opacity: 1, y: 0 } : undefined}
-            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+            initial={reduce ? undefined : "hidden"}
+            animate={reduce ? "show" : undefined}
+            whileInView={reduce ? undefined : "show"}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            variants={{
+              hidden: { opacity: 0, y: 34 },
+              show: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                  staggerChildren: 0.12,
+                  delayChildren: 0.15,
+                },
+              },
+            }}
           >
             <div className={styles.dashHead}>
               <span className={styles.dashTitle}>Arrivals — Today</span>
               <span className={styles.livePill}>Live</span>
             </div>
-            {ARRIVALS.map(([name, time, status], i) => (
+            {ARRIVALS.map(([name, time, status]) => (
               <motion.div
                 key={name}
                 className={styles.arrival}
-                initial={reduce ? undefined : { opacity: 0, x: -16 }}
-                animate={reduce ? { opacity: 1, x: 0 } : undefined}
-                whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.45, delay: 0.15 + i * 0.12 }}
+                variants={{
+                  hidden: { opacity: 0, x: -16 },
+                  show: { opacity: 1, x: 0, transition: { duration: 0.45 } },
+                }}
               >
                 <span className={styles.arrivalWho}>
                   <span className={styles.arrivalDot} />

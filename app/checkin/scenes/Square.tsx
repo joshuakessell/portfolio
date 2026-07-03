@@ -50,8 +50,8 @@ export function Square() {
     offset: ["start start", "end end"],
   });
 
-  const leftX = useTransform(p, [0.18, 0.5], ["0%", "62%"]);
-  const rightX = useTransform(p, [0.18, 0.5], ["0%", "-62%"]);
+  const leftX = useTransform(p, [0.18, 0.5], ["0%", "44%"]);
+  const rightX = useTransform(p, [0.18, 0.5], ["0%", "-44%"]);
   const cardY = "-50%";
   const ringScale = useTransform(p, [0.5, 0.58], [0, 1]);
   const ringOpacity = useTransform(p, [0.5, 0.56], [0, 1]);

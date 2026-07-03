@@ -67,7 +67,7 @@ function License() {
     <>
       <div className={styles.licHead}>
         <span>
-          <b>Sample State</b> · Driver License
+          <b>Sample State</b> · DL
         </span>
         <span>Class C</span>
       </div>
