@@ -1,0 +1,154 @@
+:root {
+  --cream: #f4f1ea;
+  --black: #141414;
+  --cobalt: #2440f0;
+  --cobalt-deep: #1a2fb8;
+  --acid: #d8f03c;
+  --coral: #ff5a3c;
+  --white: #ffffff;
+  --gray: #444444;
+  --gray-light: #9a9a9a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--black);
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.display {
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+}
+
+.wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body), sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  padding: 16px 30px;
+  border: 3px solid var(--black);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s, color 0.15s;
+  color: var(--black);
+  background: transparent;
+  cursor: pointer;
+}
+.btn.fill {
+  background: var(--cobalt);
+  color: var(--cream);
+  border-color: var(--cobalt);
+  box-shadow: 6px 6px 0 var(--black);
+}
+.btn.fill:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--black);
+}
+.btn.out:hover {
+  background: var(--acid);
+}
+.btn.inverse {
+  border-color: var(--cream);
+  color: var(--cream);
+}
+.btn.inverse:hover {
+  background: var(--acid);
+  color: var(--black);
+  border-color: var(--acid);
+}
+
+/* ---------- section tags ---------- */
+.sec-tag {
+  display: inline-block;
+  background: var(--coral);
+  color: var(--cream);
+  font-family: var(--font-display), sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 8px 16px;
+  transform: rotate(-1.5deg);
+  margin-bottom: 24px;
+}
+.sec-tag.acid {
+  background: var(--acid);
+  color: var(--black);
+}
+
+h2.sec-title {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(32px, 5vw, 58px);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 50px;
+}
+
+/* ---------- marquee ---------- */
+.marquee {
+  background: var(--cobalt);
+  color: var(--cream);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  border-bottom: 4px solid var(--black);
+}
+.marquee-inner {
+  display: inline-block;
+  animation: marquee-scroll 22s linear infinite;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.marquee-inner span {
+  margin: 0 26px;
+}
+.marquee-inner b {
+  color: var(--acid);
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-inner { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- focus states ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--cobalt);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--acid);
+  color: var(--black);
+}
