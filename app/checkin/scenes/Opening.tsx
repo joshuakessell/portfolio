@@ -1,12 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import styles from "../checkin.module.css";
+import { useReducedMotionSafe } from "@/components/useReducedMotionSafe";
 
 export function Opening() {
   const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -31,7 +32,7 @@ export function Opening() {
             className={styles.openKicker}
             variants={stagger}
             initial={reduce ? undefined : "hidden"}
-            animate={reduce ? undefined : "show"}
+            animate={reduce ? { opacity: 1, y: 0 } : "show"}
             custom={0}
           >
             Case Study — Private Club Chain
@@ -41,7 +42,7 @@ export function Opening() {
               style={{ display: "block" }}
               variants={stagger}
               initial={reduce ? undefined : "hidden"}
-              animate={reduce ? undefined : "show"}
+              animate={reduce ? { opacity: 1, y: 0 } : "show"}
               custom={1}
             >
               The Check-In,
@@ -51,7 +52,7 @@ export function Opening() {
               style={{ display: "block" }}
               variants={stagger}
               initial={reduce ? undefined : "hidden"}
-              animate={reduce ? undefined : "show"}
+              animate={reduce ? { opacity: 1, y: 0 } : "show"}
               custom={2}
             >
               Reinvented.
@@ -61,7 +62,7 @@ export function Opening() {
             className={styles.openSub}
             variants={stagger}
             initial={reduce ? undefined : "hidden"}
-            animate={reduce ? undefined : "show"}
+            animate={reduce ? { opacity: 1, y: 0 } : "show"}
             custom={3}
           >
             A production member check-in platform, designed and built solo.

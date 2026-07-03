@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import type { ReactNode } from "react";
+import { useReducedMotionSafe } from "./useReducedMotionSafe";
 
 export function Reveal({
   children,
@@ -10,7 +11,7 @@ export function Reveal({
   children: ReactNode;
   delay?: number;
 }) {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   if (reduce) return <div>{children}</div>;
   return (
     <motion.div

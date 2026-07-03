@@ -1,12 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import styles from "../checkin.module.css";
+import { useReducedMotionSafe } from "@/components/useReducedMotionSafe";
 
 export function Race() {
   const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   const { scrollYProgress: p } = useScroll({
     target: ref,
     offset: ["start start", "end end"],

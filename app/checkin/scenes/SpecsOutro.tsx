@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import styles from "../checkin.module.css";
+import { useReducedMotionSafe } from "@/components/useReducedMotionSafe";
 
 const SPECS = [
   ["TypeScript, end to end", "One language, one type system, from kiosk UI to API to database schema."],
@@ -14,7 +15,7 @@ const SPECS = [
 ] as const;
 
 export function SpecsOutro() {
-  const reduce = useReducedMotion();
+  const reduce = useReducedMotionSafe();
   return (
     <>
       <section className={styles.specs}>
@@ -29,6 +30,7 @@ export function SpecsOutro() {
                 key={title}
                 className={styles.specCard}
                 initial={reduce ? undefined : { opacity: 0, y: 24 }}
+                animate={reduce ? { opacity: 1, y: 0 } : undefined}
                 whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
