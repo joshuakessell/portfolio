@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 import styles from "../checkin.module.css";
+import { License } from "./License";
 import { useReducedMotionSafe } from "@/components/useReducedMotionSafe";
 
 const PROFILE_ROWS = [
@@ -62,29 +63,6 @@ function ProfileCard({ p }: { p: MotionValue<number> | null }) {
   );
 }
 
-function License() {
-  return (
-    <>
-      <div className={styles.licHead}>
-        <span>
-          <b>Sample State</b> · DL
-        </span>
-        <span>Class C</span>
-      </div>
-      <div className={styles.licBody}>
-        <div className={styles.licPhoto} />
-        <div className={styles.licFields}>
-          <b>SAMPLE, JORDAN A</b>
-          <br />
-          DOB 04/12/1991 · EXP 04/12/2029
-          <br />
-          DL S0000-0000 · Fictional data
-        </div>
-      </div>
-    </>
-  );
-}
-
 export function Scan() {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotionSafe();
@@ -125,7 +103,7 @@ export function Scan() {
             The license barcode carries everything the front desk used to type.
             Scan it, match the member, check them in.
           </p>
-          <div style={{ display: "flex", gap: 40, justifyContent: "center", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 40, justifyContent: "center", alignItems: "center", flexWrap: "wrap" }}>
             <div className={styles.license}>
               <License />
               <div className={styles.licBarcode} />

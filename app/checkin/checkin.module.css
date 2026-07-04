@@ -37,7 +37,7 @@
 .center { text-align: center; padding: 0 24px; }
 
 /* ============ opening ============ */
-.opening { height: 220vh; position: relative; }
+.opening { height: 170vh; position: relative; }
 .openKicker {
   font-family: var(--font-display), sans-serif;
   font-size: clamp(12px, 1.4vw, 15px);
@@ -103,7 +103,7 @@
 .sceneSub { margin-top: 18px; color: #9a9a9a; font-size: 16px; max-width: 480px; }
 
 /* ============ problem scene ============ */
-.problem { height: 320vh; position: relative; background: #101010; }
+.problem { height: 240vh; position: relative; background: #101010; }
 .problemGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -191,7 +191,7 @@
 }
 
 /* ============ scan scene ============ */
-.scan { height: 400vh; position: relative; background: #0c0c0c; }
+.scan { height: 300vh; position: relative; background: #0c0c0c; }
 .scanStage {
   position: relative;
   width: 100%;
@@ -217,58 +217,145 @@
   background: radial-gradient(ellipse at center, rgba(216, 240, 60, 0.5), transparent 70%);
 }
 .license {
-  width: min(400px, 78vw);
+  width: min(420px, 80vw);
   aspect-ratio: 1.586;
-  background: linear-gradient(135deg, #e9e4d8, #cfd8e0);
-  border-radius: 14px;
+  background:
+    radial-gradient(ellipse at 85% 20%, rgba(120, 160, 205, 0.22), transparent 55%),
+    radial-gradient(ellipse at 10% 90%, rgba(190, 150, 110, 0.16), transparent 50%),
+    repeating-radial-gradient(circle at 30% 40%, transparent 0 6px, rgba(60, 90, 130, 0.035) 6px 7px),
+    linear-gradient(115deg, #f4f2ea 0%, #e8ecf0 45%, #dde6ee 100%);
+  border-radius: 12px;
   color: #1c2733;
-  padding: 4.2% 5%;
   position: relative;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   will-change: transform;
 }
-.licHead {
+.licBand {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  font-family: var(--font-display), sans-serif;
-  font-size: clamp(9px, 1.4vw, 11px);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
+  align-items: baseline;
+  padding: 2.6% 5%;
+  background: linear-gradient(180deg, #1d3d6b, #2a5490);
+  color: #fff;
 }
-.licHead b { color: #b03a2e; }
-.licBody { display: flex; gap: 5%; margin-top: 4%; flex: 1; }
+.licState {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(13px, 2.2vw, 18px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.licDocType {
+  font-size: clamp(7px, 1.1vw, 9px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c8d6ea;
+}
+.licDocType b { color: #f0c860; margin-left: 6px; }
+.licBody { display: flex; gap: 4%; padding: 2.4% 5% 0; flex: 1; min-height: 0; }
 .licPhoto {
-  width: 27%;
-  aspect-ratio: 0.8;
-  background: linear-gradient(160deg, #8fa3b5, #5d7285);
-  border-radius: 6px;
+  width: 24%;
+  aspect-ratio: 0.78;
+  background: linear-gradient(160deg, #b9c6d2, #8fa3b5);
+  border: 1px solid #9aa8b6;
+  border-radius: 3px;
   position: relative;
   overflow: hidden;
+  align-self: flex-start;
+  flex-shrink: 0;
 }
 .licPhoto::after {
   content: "";
   position: absolute;
-  inset: 18% 25% 0;
-  background: radial-gradient(circle at 50% 28%, #3d4f60 26%, transparent 27%),
-    radial-gradient(ellipse at 50% 90%, #3d4f60 42%, transparent 43%);
+  inset: 16% 22% 0;
+  background: radial-gradient(circle at 50% 26%, #4a5d70 24%, transparent 25%),
+    radial-gradient(ellipse at 50% 92%, #4a5d70 44%, transparent 45%);
 }
-.licFields { flex: 1; font-size: clamp(8px, 1.3vw, 11px); line-height: 1.75; }
-.licFields b { font-size: clamp(10px, 1.7vw, 14px); letter-spacing: 0.02em; }
-.licBarcode {
+.licInfo { flex: 1; display: flex; flex-direction: column; gap: 1.6%; min-width: 0; }
+.licTopRow { display: flex; gap: 14%; }
+.licField { display: flex; flex-direction: column; line-height: 1.25; }
+.licFieldLabel {
+  font-size: clamp(5px, 0.85vw, 6.5px);
+  font-weight: 700;
+  color: #2a5490;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.licFieldValue {
+  font-size: clamp(8px, 1.3vw, 10.5px);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.licTopRow .licFieldValue { color: #b03a2e; font-weight: 700; }
+.licName {
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(10px, 1.6vw, 12.5px);
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  color: #16213c;
+}
+.licName .licFieldLabel { display: inline; margin-right: 3px; }
+.licAddress {
+  font-size: clamp(7px, 1.1vw, 9px);
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  color: #334152;
+}
+.licAddress .licFieldLabel { display: inline; margin-right: 3px; }
+.licDates { display: flex; gap: 9%; }
+.licDates .licFieldValue { color: #16213c; }
+.licGrid { display: flex; gap: 6%; white-space: nowrap; }
+.licSigRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 5%;
   margin-top: auto;
-  height: 44px;
+}
+.licSignature {
+  font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
+  font-style: italic;
+  font-size: clamp(12px, 1.9vw, 15px);
+  color: #26364d;
+  transform: rotate(-2deg);
+}
+.licGhost {
+  width: 9%;
+  aspect-ratio: 0.78;
+  background: radial-gradient(circle at 50% 26%, rgba(74, 93, 112, 0.35) 24%, transparent 25%),
+    radial-gradient(ellipse at 50% 92%, rgba(74, 93, 112, 0.35) 44%, transparent 45%),
+    rgba(143, 163, 181, 0.25);
+  border-radius: 2px;
+}
+.licMicroprint {
+  font-size: clamp(4.5px, 0.7vw, 5.5px);
+  letter-spacing: 0.22em;
+  text-align: center;
+  color: #7d8ba0;
+  text-transform: uppercase;
+  padding: 1% 0 1.4%;
+}
+.licBarcode {
+  height: 34px;
   flex-shrink: 0;
-  border-radius: 4px;
-  background: repeating-linear-gradient(
-    90deg,
-    #1c2733 0 2px, transparent 2px 4px,
-    #1c2733 4px 7px, transparent 7px 8px,
-    #1c2733 8px 9px, transparent 9px 13px
-  );
+  margin: 0 5% 3%;
+  border-radius: 2px;
+  padding: 3px 4px;
+  background-color: #fff;
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0 8px, #fff 8px 10px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #10161f 0 2px, transparent 2px 3px,
+      #10161f 3px 7px, transparent 7px 8px,
+      #10161f 8px 9px, transparent 9px 12px,
+      #10161f 12px 16px, transparent 16px 17px
+    );
+  background-clip: content-box;
   position: relative;
 }
 .barcodeFlash {
@@ -355,7 +442,7 @@
 .scanCaption h3 span { color: var(--acid); }
 
 /* ============ race scene ============ */
-.race { height: 260vh; position: relative; background: #101010; }
+.race { height: 200vh; position: relative; background: #101010; }
 .raceInner { max-width: 1000px; width: 100%; padding: 0 24px; }
 .lane { margin-top: 44px; }
 .laneHead {
@@ -396,7 +483,7 @@
 }
 
 /* ============ square scene ============ */
-.square { height: 300vh; position: relative; background: #0c0c0c; }
+.square { height: 230vh; position: relative; background: #0c0c0c; }
 .squareStage {
   display: grid;
   grid-template-columns: 1fr 1fr;
