@@ -6,3 +6,6 @@ out
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
+
+# Raw video source — only the transcoded tour.mp4 / poster are committed
+public/checkin/tour-source/
