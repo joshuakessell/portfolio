@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "./checkin.module.css";
-import { Opening } from "./scenes/Opening";
-import { Problem } from "./scenes/Problem";
-import { Scan } from "./scenes/Scan";
-import { Race } from "./scenes/Race";
-import { Square } from "./scenes/Square";
-import { Desk } from "./scenes/Desk";
-import { SpecsOutro } from "./scenes/SpecsOutro";
+import { VideoTour } from "./_video/VideoTour";
 
 export const metadata: Metadata = {
   title: "The Check-In, Reinvented — Joshua Kessell",
@@ -20,15 +14,9 @@ export default function CheckinPage() {
     <main className={styles.page}>
       <div className={styles.topbar}>
         <Link href="/">← JK■</Link>
-        <a href="/#contact">Contact</a>
+        <Link href="/#contact">Contact</Link>
       </div>
-      <Opening />
-      <Problem />
-      <Scan />
-      <Race />
-      <Square />
-      <Desk />
-      <SpecsOutro />
+      <VideoTour />
     </main>
   );
 }
