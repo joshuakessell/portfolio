@@ -6,16 +6,18 @@ import styles from "./video.module.css";
 import { STATS } from "./chapters";
 import { ChapterRail } from "./ChapterRail";
 import { useActiveChapter } from "./useActiveChapter";
+import { useAutoplay } from "./useAutoplay";
 
 export function VideoTour() {
   const ref = useRef<HTMLVideoElement>(null);
   const active = useActiveChapter(ref);
+  useAutoplay(ref);
 
   const seek = (time: number) => {
     const el = ref.current;
     if (!el) return;
     el.currentTime = time;
-    void el.play();
+    void el.play().catch(() => {});
   };
 
   return (
@@ -37,13 +39,20 @@ export function VideoTour() {
           className={styles.video}
           src="/checkin/tour.mp4"
           poster="/checkin/tour-poster.webp"
+          aria-label="Product tour of the member check-in platform"
           controls
-          autoPlay
           muted
-          loop
           playsInline
           preload="metadata"
-        />
+        >
+          <track
+            kind="captions"
+            src="/checkin/tour-captions.vtt"
+            srcLang="en"
+            label="English"
+            default
+          />
+        </video>
       </div>
 
       <ChapterRail active={active} onSeek={seek} />

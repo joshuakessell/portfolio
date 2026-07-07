@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00.000 --> 00:07.000
+The check-in, reinvented — a production member check-in platform, designed and built solo.
+
+00:07.000 --> 00:18.000
+The old way: every visit started with a form. Manual entry at the front desk, keystroke by keystroke. Too slow.
+
+00:18.000 --> 00:33.000
+The new way: one scan, zero typing. Scan a license and the member is checked in.
+
+00:33.000 --> 00:43.000
+Head to head — seconds, not minutes. Average peak-hour check-in time fell 50%.
+
+00:43.000 --> 00:55.000
+Plays nice with Square. Memberships, transactions and check-ins stay in sync. No double entry.
+
+00:55.000 --> 01:06.000
+For the staff: the front desk sees everything — a live arrivals view.
+
+01:06.000 --> 01:11.000
+Under the hood: enterprise habits, startup speed. TypeScript, Next.js, Postgres, and an AAMVA barcode pipeline.
+
+01:11.000 --> 01:20.000
+One engineer. Full production value.

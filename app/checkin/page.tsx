@@ -14,7 +14,7 @@ export default function CheckinPage() {
     <main className={styles.page}>
       <div className={styles.topbar}>
         <Link href="/">← JK■</Link>
-        <a href="/#contact">Contact</a>
+        <Link href="/#contact">Contact</Link>
       </div>
       <VideoTour />
     </main>
